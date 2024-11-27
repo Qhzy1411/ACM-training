@@ -1,0 +1,93 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            //这里构建g++build任务
+            "label": "g++build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                //此处为编译选项
+                "${file}",//该(单文件编译)
+                //"${workspaceFolder}\\*.c",//(多文件编译)
+                "-o",
+                //承接上述,把源代码编译为对应exe文件,
+                "${fileDirname}/${fileBasenameNoExtension}.exe",//(单文件编译)
+                //"${workspaceFolder}\\${workspaceRootFolderName}.exe",//(多文件编译)
+                "-g",
+                "-Wall",//获取警告
+                "-static-libgcc",
+                "-fexec-charset=GBK"//按GBK编码
+            ],
+            "group": {
+                //把该任务放在build组中
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                //配置build任务的终端相关
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"//为了方便每次都重新开启一个终端
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            //这里构建gccbuild任务
+            "label": "gccbuild",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                //此处为编译选项
+                "${file}",//该(单文件编译)
+                //"${workspaceFolder}\\*.c",//(多文件编译)
+                "-o",
+                //承接上述,把源代码编译为对应exe文件,
+                "${fileDirname}/${fileBasenameNoExtension}.exe",//(单文件编译)
+                //"${workspaceFolder}\\${workspaceRootFolderName}.exe",//(多文件编译)
+                "-g",
+                "-Wall",//获取警告
+                "-static-libgcc",
+                "-fexec-charset=GBK",//按GBK编码
+                "-std=c11"//选择C标准,这里按照你需要的换
+            ],
+            "group": {
+                //把该任务放在build组中
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                //配置build任务的终端相关
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"//为了方便每次都重新开启一个终端
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            //这里配置run任务
+            "label": "run",
+            "type": "shell",
+            "dependsOn": "build",
+            "command": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",//(单文件编译)
+            //"command":"${workspaceFolder}\\${workspaceRootFolderName}.exe",//(多文件编译)
+            //这里command与前面build中的编译输出对应
+            "group": {
+                //这里把run任务放在test组中,方便我们使用快捷键来执行程序
+                //请人为修改"设置","键盘快捷方式"中的"运行测试任务"为"你喜欢的键位"
+                //推荐为"ALT+某个字母键",使用该键来运行程序
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                //同理配置终端
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        }
+    ]
+}
