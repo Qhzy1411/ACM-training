@@ -7,7 +7,7 @@
       // cppdbg对应cpptools提供的调试功能；只能是cppdbg
       "request": "launch",
       //这里program指编译好的exe可执行文件的路径,与tasks中要对应
-      "program": "${fileDirname}/${fileBasenameNoExtension}.exe", //(单文件调试)
+      "program": "${fileDirname}\\exe\\${fileBasenameNoExtension}.exe", //(单文件调试)
       //"program": "${workspaceFolder}\\${workspaceRootFolderName}.exe", //(多文件调试)
       "args": [],
       "stopAtEntry": false, // 这里改为true作用等同于在main处打断点
@@ -32,7 +32,7 @@
       // cppdbg对应cpptools提供的调试功能；只能是cppdbg
       "request": "launch",
       //这里program指编译好的exe可执行文件的路径,与tasks中要对应
-      "program": "${fileDirname}/${fileBasenameNoExtension}.exe", //(单文件调试)
+      "program": "${fileDirname}\\exe\\${fileBasenameNoExtension}.exe", //(单文件调试)
       //"program": "${workspaceFolder}\\${workspaceRootFolderName}.exe", //(多文件调试)
       "args": [],
       "stopAtEntry": false, // 这里改为true作用等同于在main处打断点

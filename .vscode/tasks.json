@@ -9,15 +9,16 @@
             "args": [
                 //此处为编译选项
                 "${file}",//该(单文件编译)
-                //"${workspaceFolder}\\*.c",//(多文件编译)
+                //"${workspaceFolder}\\*.cpp",//(多文件编译)
                 "-o",
                 //承接上述,把源代码编译为对应exe文件,
-                "${fileDirname}/${fileBasenameNoExtension}.exe",//(单文件编译)
+                "${fileDirname}\\exe\\${fileBasenameNoExtension}.exe",//(单文件编译)
                 //"${workspaceFolder}\\${workspaceRootFolderName}.exe",//(多文件编译)
                 "-g",
                 "-Wall",//获取警告
                 "-static-libgcc",
-                "-fexec-charset=GBK"//按GBK编码
+                "-fexec-charset=GBK",//按GBK编码
+                "-std=c++11"
             ],
             "group": {
                 //把该任务放在build组中
@@ -44,7 +45,7 @@
                 //"${workspaceFolder}\\*.c",//(多文件编译)
                 "-o",
                 //承接上述,把源代码编译为对应exe文件,
-                "${fileDirname}/${fileBasenameNoExtension}.exe",//(单文件编译)
+                "${fileDirname}\\exe\\${fileBasenameNoExtension}.exe",//(单文件编译)
                 //"${workspaceFolder}\\${workspaceRootFolderName}.exe",//(多文件编译)
                 "-g",
                 "-Wall",//获取警告
