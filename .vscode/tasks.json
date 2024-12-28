@@ -17,7 +17,6 @@
                 //"${workspaceFolder}\\${workspaceRootFolderName}.exe",//(多文件编译)
                 "-Wall", //获取警告
                 "-static-libgcc",
-                "-fexec-charset=GBK", //按GBK编码
                 "-std=c++11"
             ],
             "group": {
